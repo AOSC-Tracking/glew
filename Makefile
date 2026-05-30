@@ -45,7 +45,7 @@ GLEW_DEST ?= /usr/local
 BINDIR    ?= $(GLEW_DEST)/bin
 LIBDIR    ?= $(GLEW_DEST)/lib
 INCDIR    ?= $(GLEW_DEST)/include/GL
-PKGDIR    ?= $(GLEW_DEST)/lib/pkgconfig
+PKGCONFIGDIR    ?= $(GLEW_DEST)/lib/pkgconfig
 
 ifneq ($(GLEW_NO_GLU), -DGLEW_NO_GLU)
 LIBGLU = glu
@@ -239,9 +239,9 @@ install.include:
 	$(INSTALL) -m 0644 include/GL/eglew.h "$(DESTDIR)$(INCDIR)/"
 
 install.pkgconfig: glew.pc
-	$(INSTALL) -d -m 0755 "$(DESTDIR)$(PKGDIR)"
-	$(INSTALL) -d -m 0755 "$(DESTDIR)$(PKGDIR)"
-	$(INSTALL) -m 0644 glew.pc "$(DESTDIR)$(PKGDIR)/"
+	$(INSTALL) -d -m 0755 "$(DESTDIR)$(PKGCONFIGDIR)"
+	$(INSTALL) -d -m 0755 "$(DESTDIR)$(PKGCONFIGDIR)"
+	$(INSTALL) -m 0644 glew.pc "$(DESTDIR)$(PKGCONFIGDIR)/"
 
 uninstall:
 	$(RM) "$(DESTDIR)$(INCDIR)/eglew.h"
